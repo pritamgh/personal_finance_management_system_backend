@@ -28,11 +28,8 @@
 # config:
 # 	$(COMPOSE) config
 
-
-# Build Docker image for deployment (used by CI/CD)
 docker-build:
-	docker build -f docker/Dockerfile -t $(REGISTRY)/$(ECR_REPOSITORY):$(IMAGE_TAG) docker/
+	docker build -f docker/Dockerfile -t $(REGISTRY)/$(ECR_REPOSITORY):$(IMAGE_TAG) .
 
-# Push Docker image to ECR (used by CI/CD)
 docker-push:
 	docker push $(REGISTRY)/$(ECR_REPOSITORY):$(IMAGE_TAG)
