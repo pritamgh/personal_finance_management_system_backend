@@ -52,7 +52,7 @@ COPY src ./src
 COPY tests ./tests
 COPY migrations ./migrations
 COPY alembic.ini ./alembic.ini
-COPY README.md ./README.md
+COPY README ./README
 COPY main.py ./main.py
 
 # Copy entrypoint script
