@@ -1,0 +1,20 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+pydantic-settings
+alembic
+psycopg2-binary        # For PostgreSQL
+python-dotenv          # For environment variables
+
+passlib[bcrypt]        # For password hashing
+pyjwt                  # For JWT tokens
+
+pytest                 # For testing
+httpx
+
+kafka-python==2.0.2    # Kafka 
+
+pandas                 # For data analysis 
+scikit-learn           # For machine learning
+matplotlib             # For visualizations

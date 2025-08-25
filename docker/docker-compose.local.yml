@@ -1,0 +1,4 @@
+services:
+  kafka:
+    environment:
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9093

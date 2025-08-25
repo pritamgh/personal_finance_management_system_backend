@@ -1,0 +1,31 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env
+
+# Migration
+alembic.ini
+migrations/
+
+# SQL
+SQL_dump.md
+
+# VSCode settings
+.vscode/
+
+# Log files
+*.log
+
+# Test outputs
+coverage/
+*.cover
+*.pyc
+
+# Python packaging
+build/
+dist/
+*.egg-info/
