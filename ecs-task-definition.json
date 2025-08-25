@@ -11,7 +11,7 @@
       "environment": [],
       "environmentFiles": [],
       "essential": true,
-      "image": "050451359408.dkr.ecr.eu-north-1.amazonaws.com/personal_finance_management_system_backend",  // GitHub Actions will replace this
+      "image": "050451359408.dkr.ecr.eu-north-1.amazonaws.com/personal_finance_management_system_backend",
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
