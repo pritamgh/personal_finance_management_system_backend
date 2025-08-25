@@ -8,8 +8,8 @@ venv/
 .env
 
 # Migration
-alembic.ini
-migrations/
+# alembic.ini
+# migrations/
 
 # SQL
 SQL_dump.md
