@@ -1,0 +1,31 @@
+{
+  "cpu": 0,
+  "environment": [],
+  "environmentFiles": [],
+  "essential": true,
+  "image": "050451359408.dkr.ecr.eu-north-1.amazonaws.com/personal_finance_management_system_backend",
+  "logConfiguration": {
+    "logDriver": "awslogs",
+    "options": {
+      "awslogs-group": "/ecs/personal_finance_management_system_backend_task",
+      "awslogs-create-group": "true",
+      "awslogs-region": "eu-north-1",
+      "awslogs-stream-prefix": "ecs"
+    },
+    "secretOptions": []
+  },
+  "mountPoints": [],
+  "name": "personal_finance_management_system_backend",
+  "portMappings": [
+    {
+      "appProtocol": "http",
+      "containerPort": 8000,
+      "hostPort": 8000,
+      "name": "personal_finance_management_system_backend-80-tcp",
+      "protocol": "tcp"
+    }
+  ],
+  "systemControls": [],
+  "ulimits": [],
+  "volumesFrom": []
+}
