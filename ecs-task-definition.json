@@ -42,7 +42,6 @@
         }
     ],
     "cpu": "1024",
-    "enableFaultInjection": false,
     "executionRoleArn": "arn:aws:iam::050451359408:role/ecsTaskExecutionRole",
     "family": "personal_finance_management_system_backend_task",
     "memory": "2048",
