@@ -8,8 +8,36 @@
             "cpu": 0,
             "environment": [
                 {
-                    "name": "DATABASE_URL",
-                    "value": "postgresql://postgres:pfms12@#@pfms.c3oqwcuiqsni.eu-north-1.rds.amazonaws.com:5432/pfms"
+                    "name": "POSTGRESQLDB_USER",
+                    "value": "postgres"
+                },
+                {
+                    "name": "POSTGRESQLDB_PASSWORD",
+                    "value": "pfms12@#"
+                },
+                {
+                    "name": "POSTGRESQLDB_HOST",
+                    "value": "pfms.c3oqwcuiqsni.eu-north-1.rds.amazonaws.com"
+                },
+                {
+                    "name": "POSTGRESQLDB_PORT",
+                    "value": "5432"
+                },
+                {
+                    "name": "POSTGRESQLDB_NAME",
+                    "value": "pfms"
+                },
+                {
+                    "name": "SECRET_KEY",
+                    "value": "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
+                },
+                {
+                    "name": "ALGORITHM",
+                    "value": "HS256"
+                },
+                {
+                    "name": "ACCESS_TOKEN_EXPIRE_MINUTES",
+                    "value": "1440"
                 }
             ],
             "environmentFiles": [],
