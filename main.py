@@ -11,8 +11,8 @@ from sqlalchemy.exc import OperationalError, ProgrammingError
 
 from src.cache.transaction import cache_categories
 from src.dependencies import get_db
-from src.kafka.consumer import KafkaConsumerWrapper
-from src.kafka.producer import KafkaProducerWrapper
+# from src.kafka.consumer import KafkaConsumerWrapper
+# from src.kafka.producer import KafkaProducerWrapper
 from src.routers import api_router
 
 
@@ -32,44 +32,44 @@ app.add_middleware(
 
 app.include_router(api_router)
 
-KAFKA_SERVER = os.getenv("KAFKA_SERVER", "localhost:9093")
-KAFKA_TOPIC = "create_transaction_topic"
+# KAFKA_SERVER = os.getenv("KAFKA_SERVER", "localhost:9093")
+# KAFKA_TOPIC = "create_transaction_topic"
 
-kafka_producer = KafkaProducerWrapper(bootstrap_servers=KAFKA_SERVER)
-kafka_consumer = KafkaConsumerWrapper(bootstrap_servers=KAFKA_SERVER, topic=KAFKA_TOPIC)
-
-
-def start_consumer():
-    """Run the Kafka consumer in a separate thread."""
-    try:
-        kafka_consumer.consume_messages()
-    except Exception as e:
-        print(f"Kafka consumer error: {e}")
+# kafka_producer = KafkaProducerWrapper(bootstrap_servers=KAFKA_SERVER)
+# kafka_consumer = KafkaConsumerWrapper(bootstrap_servers=KAFKA_SERVER, topic=KAFKA_TOPIC)
 
 
-def shutdown_handler(signum, frame):
-    """
-    Handle graceful shutdown by terminating the process when Ctrl+C or SIGTERM is received.
-    """
-    kafka_consumer.close()
-    sys.exit(0)
+# def start_consumer():
+#     """Run the Kafka consumer in a separate thread."""
+#     try:
+#         kafka_consumer.consume_messages()
+#     except Exception as e:
+#         print(f"Kafka consumer error: {e}")
 
 
-def setup_signal_handlers():
-    """
-    Set up signal handlers for graceful shutdown (SIGINT for Ctrl+C, SIGTERM for termination).
-    """
-    signal.signal(signal.SIGINT, shutdown_handler)
-    signal.signal(signal.SIGTERM, shutdown_handler)
+# def shutdown_handler(signum, frame):
+#     """
+#     Handle graceful shutdown by terminating the process when Ctrl+C or SIGTERM is received.
+#     """
+#     kafka_consumer.close()
+#     sys.exit(0)
 
 
-def start_consumer_thread():
-    """
-    Start the Kafka consumer in a separate thread as a daemon so that it exits
-    when the main process ends.
-    """
-    consumer_thread = threading.Thread(target=start_consumer, daemon=True)
-    consumer_thread.start()
+# def setup_signal_handlers():
+#     """
+#     Set up signal handlers for graceful shutdown (SIGINT for Ctrl+C, SIGTERM for termination).
+#     """
+#     signal.signal(signal.SIGINT, shutdown_handler)
+#     signal.signal(signal.SIGTERM, shutdown_handler)
+
+
+# def start_consumer_thread():
+#     """
+#     Start the Kafka consumer in a separate thread as a daemon so that it exits
+#     when the main process ends.
+#     """
+#     consumer_thread = threading.Thread(target=start_consumer, daemon=True)
+#     consumer_thread.start()
 
 
 def setup_cache(db: Session):
@@ -96,12 +96,17 @@ def run_application():
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
 
-if __name__ == "__main__":
-    # Initialize signal handlers for graceful shutdown
-    setup_signal_handlers()
+@app.get("/")
+def health_check():
+    return {"message": "App is running!"}
 
-    # Start Kafka consumer in a separate daemon thread
-    start_consumer_thread()
+
+if __name__ == "__main__":
+    # # Initialize signal handlers for graceful shutdown
+    # setup_signal_handlers()
+
+    # # Start Kafka consumer in a separate daemon thread
+    # start_consumer_thread()
 
     # Run application using: uvicorn main:app --reload
     run_application()
