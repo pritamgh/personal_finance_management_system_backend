@@ -11,9 +11,6 @@ venv/
 # alembic.ini
 # migrations/
 
-# SQL
-SQL_dump.md
-
 # VSCode settings
 .vscode/
 
@@ -29,3 +26,8 @@ coverage/
 build/
 dist/
 *.egg-info/
+
+# README related
+deployment_guide.md
+sql_dump.md
+technical_portfolio.md
