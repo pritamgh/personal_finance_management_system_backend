@@ -20,7 +20,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "https://pfms-frontend.vercel.app/"
+    "https://pfms-frontend.vercel.app"
 ]
 
 app.add_middleware(
